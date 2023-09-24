@@ -1,0 +1,33 @@
+[
+    {
+      "_id": "t101",
+      "name": "Psyduck plus",
+      "price": 150,
+      "labels": [
+        "Doll",
+        "Baby"
+      ],
+      "createdAt": 1694629534105,
+      "inStock": true
+    },
+    {
+      "_id": "t102",
+      "name": "Luffy figure",
+      "price": 500,
+      "labels": [
+        "Doll"
+      ],
+      "createdAt": 1694629534106,
+      "inStock": true
+    },
+    {
+      "_id": "t103",
+      "name": "drone",
+      "price": 900,
+      "labels": [
+        "Battery Powered"
+      ],
+      "createdAt": 1694629534107,
+      "inStock": false
+    }
+  ]
