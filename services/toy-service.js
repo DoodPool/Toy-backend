@@ -12,7 +12,6 @@ export const toyService = {
 }
 
 function query(filterBy = {}, sortBy) {
-
   if (!filterBy) return Promise.resolve(gToys)
 
   let toysToDisplay = gToys
@@ -20,6 +19,7 @@ function query(filterBy = {}, sortBy) {
     const regExp = new RegExp(filterBy.name, 'i')
     toysToDisplay = toysToDisplay.filter((toy) => regExp.test(toy.name))
   }
+
   if (filterBy.inStock) {
     if (filterBy.inStock === 'false') {
       toysToDisplay = toysToDisplay.filter(toy => toy.inStock === false)
@@ -27,26 +27,19 @@ function query(filterBy = {}, sortBy) {
       toysToDisplay = toysToDisplay.filter(toy => toy.inStock === true)
     }
   }
-  if (filterBy.labels && filterBy.labels.length > 0) {
-    console.log('filterBy.labels', filterBy.labels)
-    // if(filterBy.labels === 'all') console.log('filterBy.labels', filterBy.labels)
+
+  if (filterBy.labels && filterBy.labels.length > 0 && filterBy.labels[0] !== 'All') {
     toysToDisplay = toysToDisplay.filter(toy => {
       return toy.labels.some(label => filterBy.labels.includes(label))
     })
   }
+
   toysToDisplay = getSortedToys(toysToDisplay, sortBy)
   if (filterBy.pageIdx !== undefined) {
     const startIdx = filterBy.pageIdx * PAGE_SIZE
     toysToDisplay = toysToDisplay.slice(startIdx, PAGE_SIZE + startIdx)
   }
 
-  if (filterBy.labels) {
-    const labelsToFilter = filterBy.labels
-    toysToDisplay = toysToDisplay.filter((toy) =>
-      labelsToFilter.every((label) => toy.labels.includes(label))
-    )
-  }
-  
   return Promise.resolve(toysToDisplay)
 }
 
@@ -77,8 +70,6 @@ function remove(toyId) {
 function save(toy, loggedinUser) {
   if (toy._id) {
     const toyToUpdate = gToys.find((currToy) => currToy._id === toy._id)
-    console.log('loggedinUser', loggedinUser);
-    console.log('toy', toy);
     // if (toy.owner._id !== loggedinUser._id) return Promise.reject('Not your toy')
     toyToUpdate.name = toy.name
     toyToUpdate.price = toy.price

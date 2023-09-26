@@ -14,7 +14,6 @@ app.use(express.static('public'))
 app.use(cookieParser())
 app.use(express.json()) // for req.body
 
-// חשוב לבדוק איך משתמשים
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static('public'));
 } else {
@@ -24,6 +23,8 @@ if (process.env.NODE_ENV === 'production') {
       'http://localhost:3000',
       'http://localhost:5173',
       'http://127.0.0.1:5173',
+      'http://localhost:5174',
+      'http://127.0.0.1:5174',
     ],
     credentials: true
   };
@@ -33,18 +34,8 @@ if (process.env.NODE_ENV === 'production') {
 
 // List
 app.get('/api/toy', (req, res) => {
-  // const { name, inStock, pageIdx, labels, type, desc } = req.query
-  // const filterBy = { name, inStock, labels, pageIdx }
-  // const sortBy = { type, desc }
-
-  // toyService.query(filterBy, sortBy).then((data) => {
-  //   res.send(data)
-  // })
-
   const { filterBy = {}, sortBy = {} } = req.query.params
-  // console.log("req.query.params:", req.query.params)
 
-  // toyService.query()
   toyService.query(filterBy, sortBy)
     .then((data) => {
       res.send(data)
@@ -58,8 +49,8 @@ app.get('/api/toy', (req, res) => {
 // Add
 app.post('/api/toy', (req, res) => {
   const { name, price, inStock, createdAt, labels, owner } = req.body
-  console.log('req.body', req.body);
   const loggedinUser = { owner }
+
   const toy = {
     name,
     price: +price,
@@ -77,8 +68,7 @@ app.post('/api/toy', (req, res) => {
 app.put('/api/toy/:toyId', (req, res) => {
   const { _id, name, price, inStock, labels, owner } = req.body
   const loggedinUser = { owner }
-  console.log('owner', owner);
-  console.log('req.body', req.body);
+
   const toy = {
     _id,
     name,
@@ -100,6 +90,7 @@ app.get('/api/toy/:toyId', (req, res) => {
     .then((toy) => {
       let visitedToysIds = req.cookies.visitedToysIds || []
       const toyExist = visitedToysIds.find((id) => id === toyId)
+
       if (!toyExist) {
         if (visitedToysIds.length < 3) {
           visitedToysIds.push(toyId)
@@ -168,7 +159,7 @@ app.post('/api/auth/login', (req, res) => {
         res.cookie('loginToken', loginToken)
         res.send(user)
       } else {
-        res.status(401).send('Invalid Credentials')
+        res.status(400).send('Invalid Credentials')
       }
     })
 })
