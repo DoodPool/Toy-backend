@@ -145,3 +145,43 @@
 24.9.2023, 14:17:17 - INFO - Server listening on port http://127.0.0.1:3030/
 24.9.2023, 14:25:03 - INFO - Server listening on port http://127.0.0.1:3030/
 24.9.2023, 14:26:17 - INFO - Server listening on port http://127.0.0.1:3030/
+30.9.2023, 23:04:38 - INFO - Server listening on port http://127.0.0.1:3030/
+30.9.2023, 23:09:53 - INFO - Server listening on port http://127.0.0.1:3030/
+30.9.2023, 23:22:31 - INFO - server.js loaded...
+30.9.2023, 23:22:31 - INFO - Server is running on port: 3030
+30.9.2023, 23:22:36 - INFO - server.js loaded...
+30.9.2023, 23:22:36 - INFO - Server is running on port: 3030
+30.9.2023, 23:22:54 - DEBUG - auth.service - login with username: Avishai
+30.9.2023, 23:22:55 - INFO - User login:  | {"_id":"65186789352d5672c47ff674","username":"Avishai","fullname":"Avishai Cohen","isAdmin":true}
+30.9.2023, 23:23:01 - DEBUG - auth.service - signup with username: a, fullname: aaa
+30.9.2023, 23:23:01 - DEBUG - auth.route - new account created: {"username":"a","password":"$2b$10$suIebppCUICaX/USuDlba./B4ETqmiR7Ai/BwRTaDsuB5V5C/HYLq","fullname":"aaa","score":0,"_id":"651883a594c8de42705942aa"}
+30.9.2023, 23:23:01 - DEBUG - auth.service - login with username: a
+30.9.2023, 23:23:10 - DEBUG - auth.service - login with username: Avishai
+30.9.2023, 23:23:10 - ERROR - Failed to Login Error: Invalid username or password
+30.9.2023, 23:23:16 - DEBUG - auth.service - signup with username: Avishai, fullname: aaa
+30.9.2023, 23:23:16 - ERROR - cannot insert user | Error: Username taken
+30.9.2023, 23:23:16 - ERROR - Failed to signup Error: Username taken
+30.9.2023, 23:23:22 - DEBUG - auth.service - login with username: Avishai
+30.9.2023, 23:23:22 - INFO - User login:  | {"_id":"65186789352d5672c47ff674","username":"Avishai","fullname":"Avishai Cohen","isAdmin":true}
+30.9.2023, 23:23:23 - INFO - Req was made | /
+30.9.2023, 23:23:23 - DEBUG - Getting Toys | {"name":"","inStock":"","pageIdx":"0"}
+30.9.2023, 23:23:23 - INFO - Req was made | /
+30.9.2023, 23:23:23 - DEBUG - Getting Toys | {"name":"","inStock":"","pageIdx":"0"}
+30.9.2023, 23:23:23 - INFO - Req was made | /
+30.9.2023, 23:23:23 - DEBUG - Getting Toys | {"name":"","inStock":"","pageIdx":"0"}
+30.9.2023, 23:23:27 - DEBUG - Getting Toys | {"name":"y","inStock":"","pageIdx":"0"}
+30.9.2023, 23:23:27 - INFO - Req was made | /
+30.9.2023, 23:23:28 - INFO - Req was made | /
+30.9.2023, 23:23:28 - DEBUG - Getting Toys | {"name":"","inStock":"","pageIdx":"0"}
+30.9.2023, 23:23:31 - INFO - Req was made | /
+30.9.2023, 23:23:31 - DEBUG - Getting Toys | {"name":"","inStock":"","pageIdx":"0"}
+30.9.2023, 23:23:31 - INFO - Req was made | /
+30.9.2023, 23:23:31 - DEBUG - Getting Toys | {"name":"","inStock":"","pageIdx":"0"}
+30.9.2023, 23:23:31 - INFO - Req was made | /
+30.9.2023, 23:23:31 - DEBUG - Getting Toys | {"name":"","inStock":"","pageIdx":"0"}
+30.9.2023, 23:23:36 - INFO - Req was made | /
+30.9.2023, 23:23:36 - DEBUG - Getting Toys | {"name":"","inStock":"","pageIdx":"0"}
+30.9.2023, 23:23:36 - INFO - Req was made | /
+30.9.2023, 23:23:36 - DEBUG - Getting Toys | {"name":"","inStock":"","pageIdx":"0"}
+30.9.2023, 23:23:36 - INFO - Req was made | /
+30.9.2023, 23:23:36 - DEBUG - Getting Toys | {"name":"","inStock":"","pageIdx":"0"}
